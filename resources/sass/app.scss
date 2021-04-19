@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css?family=Lato');
+html { font-family: 'Lato', sans-serif; }
+
+@import '../../node_modules/highlight.js/styles/atom-one-dark.css';
+
+#markdown {
+    @apply leading-relaxed text-gray-700 mb-24;
+
+    > * + * {
+        @apply mt-6;
+    }
+
+    h2 {
+        @apply text-2xl text-gray-800 font-semibold mb-2 mt-4;
+    }
+
+    h3 {
+        @apply text-xl text-gray-800 font-semibold mb-2 mt-4;
+    }
+
+    h4 {
+        @apply text-lg text-gray-800 font-semibold mb-2 mt-4;
+    }
+
+    h5 {
+        @apply text-base text-gray-800 font-semibold mb-2 mt-4;
+    }
+
+    p {
+        @apply text-base;
+    }
+
+    a {
+        @apply underline font-semibold;
+    }
+
+    ul {
+        @apply list-disc ml-8;
+    }
+
+    blockquote {
+        @apply p-2 rounded-lg bg-gray-200 my-4;
+    }
+
+    pre code {
+        @apply rounded-lg my-4;
+    }
+
+}
+
+#search-container {
+
+    span {
+        @apply w-full;
+    }
+
+}
