@@ -2,7 +2,7 @@
   "name": "dedmytro/laravel-metrics",
   "description": "Provides customizable dashboard to see project metrics",
   "type": "library",
-  "license": "MIT_License",
+  "license": "MIT",
   "keywords": [
     "laravel",
     "laravel metrics",
@@ -13,13 +13,13 @@
   ],
   "authors": [
     {
-      "name": "godundmytro",
+      "name": "Hodun Dmytro",
       "email": "godundmytro@gmail.com"
     }
   ],
   "support": {
-    "issues": "https://github.com/DeDmytro/issues",
-    "source": "https://github.com/DeDmytro"
+    "issues": "https://github.com/DeDmytro/laravel-metrics/issues",
+    "source": "https://github.com/DeDmytro/laravel-metrics"
   },
   "require": {
     "php": "^7.4",

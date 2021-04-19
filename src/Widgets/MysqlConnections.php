@@ -11,6 +11,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Str;
+use PDO;
 
 class MysqlConnections implements MultipleValueWidget
 {
@@ -31,7 +32,7 @@ class MysqlConnections implements MultipleValueWidget
         $values = [];
 
         Event::listen(StatementPrepared::class, function ($event) {
-            $event->statement->setFetchMode(\PDO::FETCH_ASSOC);
+            $event->statement->setFetchMode(PDO::FETCH_ASSOC);
         });
 
         $result = DB::select(DB::raw("

@@ -8,12 +8,13 @@ use DeDmytro\Metrics\Services\MetricsCacheManager;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
+use Psr\SimpleCache\InvalidArgumentException;
 
 final class MetricsServiceProvider extends BaseServiceProvider
 {
     /**
      * Boot resources and cache manager
-     * @throws \Psr\SimpleCache\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function boot(): void
     {

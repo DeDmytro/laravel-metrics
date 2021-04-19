@@ -2,11 +2,14 @@
 
 namespace DeDmytro\Metrics\Services;
 
+use Closure;
 use DeDmytro\Metrics\Entities\MetricCacheRecord;
+use Exception;
 use Illuminate\Contracts\Cache\Repository;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
+use Psr\SimpleCache\InvalidArgumentException;
 
 final class MetricsCacheManager
 {
@@ -30,7 +33,7 @@ final class MetricsCacheManager
 
     /**
      * MetricsCacheManager constructor.
-     * @throws \Exception
+     * @throws Exception
      */
     public function __construct()
     {
@@ -41,7 +44,7 @@ final class MetricsCacheManager
 
     /**
      * Init cache manager and put new record to cache
-     * @throws \Psr\SimpleCache\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public static function init()
     {
@@ -54,7 +57,7 @@ final class MetricsCacheManager
      * Return records for last amount of seconds
      * @param int|null $seconds
      * @return Collection
-     * @throws \Psr\SimpleCache\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function getRecordsForLastSeconds(int $seconds = null)
     {
@@ -66,11 +69,11 @@ final class MetricsCacheManager
 
     /**
      * Return cache records which match condition
-     * @param \Closure $where
+     * @param Closure $where
      * @return Collection
-     * @throws \Psr\SimpleCache\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
-    public function getRecordsWhere(\Closure $where): Collection
+    public function getRecordsWhere(Closure $where): Collection
     {
         return collect($this->getRecords())
             ->map(fn($record) => MetricCacheRecord::fromArray((array) $record))
@@ -80,7 +83,7 @@ final class MetricsCacheManager
     /**
      * Return all records
      * @return array
-     * @throws \Psr\SimpleCache\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     private function getRecords(): array
     {
@@ -90,7 +93,7 @@ final class MetricsCacheManager
     /**
      * Put new record to cache
      * @param MetricCacheRecord $cacheRecord
-     * @throws \Psr\SimpleCache\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function putRecord(MetricCacheRecord $cacheRecord)
     {
@@ -104,7 +107,7 @@ final class MetricsCacheManager
     /**
      * Replace cached records with valied records
      * @return void
-     * @throws \Psr\SimpleCache\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function clearExpiredRecords()
     {
@@ -114,7 +117,7 @@ final class MetricsCacheManager
     /**
      * Clear all records
      * @return void
-     * @throws \Psr\SimpleCache\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function clearAllRecords()
     {
@@ -124,7 +127,7 @@ final class MetricsCacheManager
     /**
      * Register function to clear expired records
      * @return void
-     * @throws \Psr\SimpleCache\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     private function registerShutdownCallback()
     {

@@ -3,12 +3,13 @@
 namespace DeDmytro\Metrics\Services;
 
 use DeDmytro\Metrics\Types\BaseWidget;
+use Illuminate\Support\Collection;
 
 class MetricWidget
 {
     /**
      * Return widgets
-     * @return \Illuminate\Support\Collection|BaseWidget[]
+     * @return Collection|BaseWidget[]
      */
     public static function all()
     {
