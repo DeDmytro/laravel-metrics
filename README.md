@@ -32,6 +32,13 @@ Or manually update `require` block of `composer.json` and run `composer update`.
 }
 ```
 
+And run install command publishes config and assets
+
+```bash
+$ php artisan metrics:install
+```
+
+
 ## Using
 
 Visit `/metrics` to see dashboard with default widgets.
