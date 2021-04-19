@@ -24,7 +24,7 @@ class RequestsPerSecond implements ValueWidget
     public function value(): Value
     {
         $manager = new MetricsCacheManager();
-        $value = $manager->getRecordsForLastSeconds(5)->count();
+        $value = $manager->getRecordsForLastSeconds(5)->count()/5;
 
         return Value::make($value)->double(1);
     }
