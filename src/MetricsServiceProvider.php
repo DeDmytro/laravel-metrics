@@ -3,6 +3,7 @@
 namespace DeDmytro\Metrics;
 
 use DeDmytro\Metrics\Commands\Install;
+use DeDmytro\Metrics\Commands\MakeWidget;
 use DeDmytro\Metrics\Entities\MetricCacheRecord;
 use DeDmytro\Metrics\Services\MetricsCacheManager;
 use Illuminate\Support\Facades\Cache;
@@ -98,5 +99,6 @@ final class MetricsServiceProvider extends BaseServiceProvider
     protected function registerConsoleCommands()
     {
         $this->commands(Install::class);
+        $this->commands(MakeWidget::class);
     }
 }

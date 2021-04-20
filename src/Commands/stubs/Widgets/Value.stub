@@ -1,0 +1,27 @@
+<?php
+
+namespace DummyNamespace;
+
+use DeDmytro\Metrics\Types\ValueWidget;
+use DeDmytro\Metrics\Values\Value;
+
+class DummyClass implements ValueWidget
+{
+    /**
+     * {@inheritDoc}
+     */
+    public function title(): string
+    {
+        return 'DummyClass';
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function value(): Value
+    {
+        $value = 5;
+
+        return Value::make($value)->integer();
+    }
+}

@@ -1,0 +1,28 @@
+<?php
+
+namespace DummyNamespace;
+
+use DeDmytro\Metrics\Types\MultipleValueWidget;
+use DeDmytro\Metrics\Values\LabeledValue;
+
+class DummyClass implements MultipleValueWidget
+{
+    /**
+     * {@inheritDoc}
+     */
+    public function title(): string
+    {
+        return 'DummyClass';
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function values(): array
+    {
+        return [
+            new LabeledValue('Line 1', 1),
+            new LabeledValue('Line 2', 2),
+        ];
+    }
+}
