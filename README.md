@@ -12,6 +12,7 @@ Laravel Metrics provides an ability to display your custom or default metrics wi
 
 * [Installation](#installation)
 * [Using](#using)
+* [Widgets](#widgets)
 * [Roadmap](#roadmap)
 
 ## Installation
@@ -41,8 +42,9 @@ $ php artisan metrics:install
 
 ## Using
 
-Visit `/metrics` to see dashboard with default widgets.
-To manage visible widgets open `config/metrics.php` and check `widgets` key:
+Visit `/metrics` to see dashboard with default widgets. To manage visible widgets open `config/metrics.php` and
+check `widgets` key:
+
 ```php
     'widgets' => [
         MysqlConnections::class,
@@ -51,15 +53,30 @@ To manage visible widgets open `config/metrics.php` and check `widgets` key:
     ],
 ```
 
-You can create your own widgets based on existing types ValueWidget or MultipleWidget. It will have more types soon
+## Widgets
+
+To create your custom widget use default command. By default you can found generated generated widgets in **
+app/Metrics/Widgets/**
+
+```bash
+$ php artisan metrics:widget ActiveUsersCount --type=value
+```
+
+There are few types of widgets (--type=):
+
+#### --type=value
+
+Default type, when no type specified. The simplest widget to display one value.
+
+#### --type=multiple
+
+Widget type which can be used to display multiple values with labels within one widget.
 
 ## Roadmap
 
-* Commands to make new widgets
-* More default widgets  
-* Live widgets  
+* More default widgets
+* Live widgets
 * Chart widget
-
 
 [badge_downloads]:      https://img.shields.io/packagist/dt/dedmytro/laravel-metrics.svg?style=flat-square
 
