@@ -55,7 +55,7 @@ check `widgets` key:
 
 ## Widgets
 
-To create your custom widget use default command. By default you can found generated generated widgets in **
+To create your custom widget use default command. By default you can found generated widgets in **
 app/Metrics/Widgets/**
 
 ```bash
